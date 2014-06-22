@@ -1,0 +1,26 @@
+MtCars
+========================================================
+
+
+```{r}
+library(caret)
+require(stats)
+require(graphics)
+auto <- subset(mtcars, am == 0)
+manual <- subset(mtcars, am == 1)
+autofit <- lm(mpg ~ ., data = auto)
+manualfit <- lm(mpg ~., data= manual)
+summary(autofit)
+summary(manualfit)
+```
+
+Residual plots
+
+```{r fig.width=7, fig.height=6}
+plot(resid(autofit))
+abline(0, 0)
+
+plot(resid(manualfit))
+abline(0, 0)
+```
+
